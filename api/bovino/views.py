@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from bovino.serializers import UserSerializer, GroupSerializer, BrandSerializer
-from bovino.models import Brand
+from bovino.serializers import UserSerializer, GroupSerializer, BrandSerializer, BovineSerializer
+from bovino.models import Brand, Bovine
+from bovino.pagination import StandardResultsSetPagination
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -29,4 +30,13 @@ class BrandViewSet(viewsets.ModelViewSet):
     """
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
+
+class BovineViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Bovine.objects.all()
+    serializer_class = BovineSerializer
+    pagination_class = StandardResultsSetPagination
+
 
