@@ -22,11 +22,7 @@ class Bovine(models.Model):
     date_birth = models.DateField(auto_now=False, auto_now_add=False, blank=True)
     image = models.ImageField(blank= True,upload_to="bovinos/")
 
-    brand = models.OneToOneField(
-        Brand,
-        on_delete=models.CASCADE,
-        related_name='brand_of',
-    )
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Bovine'

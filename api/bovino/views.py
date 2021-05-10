@@ -37,6 +37,5 @@ class BovineViewSet(viewsets.ModelViewSet):
     """
     queryset = Bovine.objects.all()
     serializer_class = BovineSerializer
-    pagination_class = StandardResultsSetPagination
 
 
