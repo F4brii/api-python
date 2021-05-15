@@ -21,6 +21,12 @@ sudo docker-compose run --rm api-django python manage.py makemigrations
 sudo docker-compose run --rm api-django python manage.py migrate
 ```
 
+## Create superuser
+
+```bash
+sudo docker-compose run --rm api-django python manage.py createsuperuser
+```
+
 ## Run
 
 ```bash
